@@ -4,9 +4,30 @@
   "private": true,
   "description": "Widget « Chemin du son » partagé entre Qualipo (Superkaiser) et Atlas",
   "type": "module",
-  "main": "src/index.ts",
-  "types": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "peerDependencies": {
     "react": ">=18"
+  },
+  "module": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.build.json && cp src/sound-path-widget.css dist/"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.0",
+    "react": "^19.0.0",
+    "@types/react": "^19.0.0"
   }
 }

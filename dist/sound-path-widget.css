@@ -1,0 +1,104 @@
+/* Widget « Chemin du son » — CSS pur, thémable via les variables --spw-* */
+.spw-card {
+  --spw-done: #25bc95;
+  --spw-error: #ea2a57;
+  --spw-scheduled: #a845e4;
+  --spw-pending-bg: #dddddd;
+  --spw-pending-fg: #888888;
+  --spw-line: #d6d6d6;
+  --spw-label: #888888;
+  --spw-surface: #f6f6f6;
+  --spw-title: #303f8d;
+  --spw-border: #dddddd;
+  --spw-error-bg: #f3d2d9;
+  --spw-scheduled-bg: #ecdcf9;
+  --spw-radius: 12px; /* arrondi des ramifications */
+
+  background: var(--spw-surface);
+  border-radius: 6px;
+  overflow: hidden;
+  font-family: inherit;
+}
+
+.spw-title {
+  height: 40px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  font-size: 17px;
+  color: var(--spw-title);
+  border-bottom: 2px solid var(--spw-border);
+}
+
+.spw-body { padding: 24px 16px 16px; }
+
+/* ── Schéma ── */
+.spw-path {
+  display: grid;
+  grid-template-columns: 32px 1fr 32px 1.1fr 32px 1.7fr 32px;
+  grid-template-rows: 32px 40px 32px 40px 32px 22px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.spw-state-done      { --spw-c: var(--spw-done); }
+.spw-state-error     { --spw-c: var(--spw-error); }
+.spw-state-scheduled { --spw-c: var(--spw-scheduled); }
+.spw-state-pending   { --spw-c: var(--spw-line); }
+
+.spw-bullet {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--spw-c);
+  color: #fff;
+}
+.spw-bullet.spw-state-pending { background: var(--spw-pending-bg); color: var(--spw-pending-fg); }
+.spw-bullet svg { width: 18px; height: 18px; }
+
+.spw-label { color: var(--spw-label); padding-top: 4px; max-width: 84px; } /* libellés sur 2 lignes */
+
+/* Filets horizontaux entre les étapes (couleur de l'étape qui précède) */
+.spw-line {
+  align-self: center;
+  height: 2px;
+  background: var(--spw-c);
+}
+
+/* Ramifications vers les 3 canaux : coins arrondis */
+.spw-branch {
+  grid-column: 6;
+  justify-self: end;
+  width: 30%; /* nœud décalé à droite : ne mord pas sur le libellé « Distribution Atlas » */
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-left: 2px solid var(--spw-c);
+}
+.spw-branch-up {
+  grid-row: 1 / 4;
+  border-top: 2px solid var(--spw-c);
+  border-top-left-radius: var(--spw-radius);
+}
+.spw-branch-down {
+  grid-row: 3 / 6;
+  border-bottom: 2px solid var(--spw-c);
+  border-bottom-left-radius: var(--spw-radius);
+}
+
+/* ── Message ── */
+.spw-message {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 8px;
+  font-size: 16px;
+  line-height: 22px;
+  background: var(--spw-error-bg);
+  color: var(--spw-error);
+}
+.spw-message.spw-state-scheduled {
+  background: var(--spw-scheduled-bg);
+  color: var(--spw-scheduled);
+}
