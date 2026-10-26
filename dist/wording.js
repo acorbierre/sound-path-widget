@@ -11,7 +11,7 @@ export const WORDING = {
     states: { done: 'validé', error: 'en erreur', scheduled: 'programmé', pending: 'en attente' },
     messages: {
         doublons: "Deux sons ou plus ont été livrés. Choisissez le son à conserver : l'épisode sera republié et les autres sons seront automatiquement désactivés.",
-        doublon_nouveau: "Un nouveau son a été livré. Choisissez le son à conserver : l'épisode sera automatiquement republié.",
+        doublon_nouveau: 'Un nouveau son a été livré, il est en cours de publication.',
         remplacement_en_cours: 'Un nouveau son a remplacé le précédent, il est en cours de publication.',
         mid_non_conforme: "Le son ne peut être diffusé car le numéro de Magnétothèque (MID) n'est pas valide. Veuillez vérifier et corriger le MID dans Itema.",
         droits_fermes: 'Le son ne peut être diffusé car les droits sont fermés. Pour permettre la diffusion, veuillez modifier les droits dans Itema.',
