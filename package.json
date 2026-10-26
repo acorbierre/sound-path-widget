@@ -1,6 +1,6 @@
 {
   "name": "sound-path-widget",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "description": "Widget « Chemin du son » partagé entre Qualipo (Superkaiser) et Atlas",
   "type": "module",

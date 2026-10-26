@@ -16,6 +16,8 @@ export type CaseId =
   | 'ok'
   | 'attente'
   | 'doublons'
+  | 'doublon_nouveau'
+  | 'remplacement_en_cours'
   | 'mid_non_conforme'
   | 'droits_fermes'
   | 'liberation_programmee'

@@ -20,6 +20,18 @@ export const DIAGNOSTICS: Record<CaseId, SoundPathDiagnostic> = {
     steps: { livraison: 'error', traitement: 'error', parametrage: 'error' },
     channels: all('error'),
   },
+  // 2e son livré après distribution du 1er : décision attendue, le reste du chemin est déjà OK
+  doublon_nouveau: {
+    case: 'doublon_nouveau',
+    steps: { livraison: 'error', traitement: 'done', parametrage: 'done' },
+    channels: all('done'),
+  },
+  // Le nouveau son a été choisi : le chemin repart de zéro, rouge tant qu'il n'est pas complet
+  remplacement_en_cours: {
+    case: 'remplacement_en_cours',
+    steps: { livraison: 'done', traitement: 'error', parametrage: 'error' },
+    channels: all('error'),
+  },
   mid_non_conforme: {
     case: 'mid_non_conforme',
     steps: { livraison: 'error', traitement: 'error', parametrage: 'error' },
