@@ -12,7 +12,8 @@
   --spw-border: #dddddd;
   --spw-error-bg: #f3d2d9;
   --spw-scheduled-bg: #ecdcf9;
-  --spw-radius: 12px; /* arrondi des ramifications */
+  --spw-radius: 8px; /* arrondi des ramifications */
+  --spw-line-w: 3px; /* épaisseur des filets */
 
   background: var(--spw-surface);
   border-radius: 6px;
@@ -64,7 +65,7 @@
 /* Filets horizontaux entre les étapes (couleur de l'étape qui précède) */
 .spw-line {
   align-self: center;
-  height: 2px;
+  height: var(--spw-line-w);
   background: var(--spw-c);
 }
 
@@ -73,18 +74,18 @@
   grid-column: 6;
   justify-self: end;
   width: 30%; /* nœud décalé à droite : ne mord pas sur le libellé « Distribution Atlas » */
-  margin-top: 15px;
-  margin-bottom: 15px;
-  border-left: 2px solid var(--spw-c);
+  margin-top: calc((32px - var(--spw-line-w)) / 2);
+  margin-bottom: calc((32px - var(--spw-line-w)) / 2);
+  border-left: var(--spw-line-w) solid var(--spw-c);
 }
 .spw-branch-up {
   grid-row: 1 / 4;
-  border-top: 2px solid var(--spw-c);
+  border-top: var(--spw-line-w) solid var(--spw-c);
   border-top-left-radius: var(--spw-radius);
 }
 .spw-branch-down {
   grid-row: 3 / 6;
-  border-bottom: 2px solid var(--spw-c);
+  border-bottom: var(--spw-line-w) solid var(--spw-c);
   border-bottom-left-radius: var(--spw-radius);
 }
 
